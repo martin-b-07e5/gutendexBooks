@@ -29,6 +29,7 @@
     <properties>
         <java.version>21</java.version>
     </properties>
+
     <dependencies>
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -47,7 +48,6 @@
             <artifactId>jackson-databind</artifactId>
             <version>2.18.1</version>
         </dependency>
-
 
     </dependencies>
 
