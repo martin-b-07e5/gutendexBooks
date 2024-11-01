@@ -11,7 +11,13 @@ public class Main {
 
     Scanner scanner = new Scanner(System.in);
     ConsumoAPI consumoAPI = new ConsumoAPI();
-    String URL_BASE = "https://gutendex.com/books/";
+//    String URL_BASE = "https://gutendex.com/books/";
+
+    /*search
+    Use this to search author names and book titles with given words.
+     They must be separated by a space (i.e. %20 in URL-encoded format) and are case-insensitive.
+      For example, /books?search=dickens%20great includes Great Expectations by Charles Dickens.*/
+    String URL_BASE = "http://gutendex.com/books/?search=";
 
     // Implementación del menú de opciones
     System.out.println("Bienvenido a Gutendex Books!");
@@ -22,12 +28,12 @@ public class Main {
 
 
     System.out.print("Ingrese el título del libro: ");
-    String bookTitle = scanner.next();
-
-    // Implementación de la búsqueda de libros por título
+    String bookTitle = scanner.nextLine();
+    bookTitle = bookTitle.replace(" ", "+");
     System.out.println("1. Título del libro: " + bookTitle);
-    var json = consumoAPI.obtenerDatos(URL_BASE + "2641/");
-//    System.out.println("JSON: " + json);
+//    quijote, The Great Gatsby, Great Expectations
+    var json = consumoAPI.obtenerDatos(URL_BASE + bookTitle);
+    System.out.println("JSON: " + json);
 
 
   }
