@@ -5,12 +5,9 @@
     1- datos » objetos
     2- limit 5
     3- top 10 libros más descargados
-
-\
-💡 API ofrece # de descargas para libros en formato digital
-
     4- buscar libro x title 
        ofrecer estadísticas 
+
     eg: buscar "Quijote"
         libro encontrado
             Titulo: DatosLibreos[titulo=quijote, autor,[datosAutor[nombre=cervante miguel, fecha=nacimiento=1800,... ]]]
@@ -19,13 +16,18 @@
             count=xx
 
 <hr>
-pasos<br>
+
+# pasos
+
 Crear:
 
     ✅1- ConsumoAPI
     ✅2- IConvierteDatos 👀
-    ✅3- ConvierteDatos 👀👀👀
-    👀4- Datos 👀
-    👀5- DatosLibros 👀
+    ✅3- Datos 👀
+    ✅4- ConvierteDatos 👀👀👀
+    ✅5- DatosLibros 👀
+    ✅6- Person
+    ✅7- TopTenDownloads
+    ✅8- BuscarPorTitulo
 
 

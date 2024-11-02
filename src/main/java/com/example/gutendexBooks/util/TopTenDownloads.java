@@ -18,7 +18,7 @@ public class TopTenDownloads {
             .reversed())
         .limit(10)
 //        .peek(System.out::println)  // imprime la primer parte unformatted
-        .map(datosLibros -> String.format("Title: %s, Author: %s, Birth_year; %d, Language: %s, Downloads: %d",
+        .map(datosLibros -> String.format("Title: %s, Author: %s, Birth_year; %d, Language: %s, Downloads: %f",
                 datosLibros.title(),
                 datosLibros.authors().getFirst().getName(),
                 datosLibros.authors().getFirst().getBirth_year(),
@@ -28,5 +28,6 @@ public class TopTenDownloads {
         )
 
         .forEach(System.out::println);
+
   }
 }

@@ -13,12 +13,10 @@ public class Main {
   Scanner scanner = new Scanner(System.in);
   String URL_BASE = "https://gutendex.com/books/";
   String URL_SEARCH = "http://gutendex.com/books/?search=";
-  /*search
-    Use this to search author names and book titles with given words.
-     They must be separated by a space (i.e. %20 in URL-encoded format) and are case-insensitive.
-      For example, /books?search=dickens%20great includes Great Expectations by Charles Dickens.*/
+
   ConsumoAPI consumoAPI = new ConsumoAPI();
   ConvierteDatos conversor = new ConvierteDatos();
+  Datos datos;
 
   // Method
   public void muestraElMenu() {
@@ -34,23 +32,22 @@ public class Main {
       try {
         option = Integer.parseInt(scanner.nextLine());
       } catch (NumberFormatException e) {
-        System.out.println("Opción inválida. Elija una opción válida.\n");
+        System.out.println("---Opción inválida. Elija una opción válida.---\n");
         continue;
       }
 
       switch (option) {
         case 1:
-          BuscarPorTitulo.buscarPorTitulo(scanner, consumoAPI, URL_SEARCH);
+          // 1. Buscar libros por título
+          BuscarPorTitulo.buscarPorTitulo(scanner, consumoAPI, URL_SEARCH, conversor);
           break;
         case 2:
 //          2. Top 10 libros más descargados
           System.out.println("------------------------------");
           var json = consumoAPI.obtenerDatos(URL_BASE);
-          // Obtiene los datos generales de los LIBROS
           System.out.println("json = " + json);
 
-//          var datos = conversor.obtenerDatosx(json, Datos.class);
-          Datos datos = conversor.obtenerDatosx(json, Datos.class);
+          datos = conversor.obtenerDatosx(json, Datos.class);
           System.out.println("\ndatos = " + datos);
           System.out.println("------------------------------");
           TopTenDownloads.mostrarTop10LibrosMasDescargados(datos.results());
@@ -59,15 +56,14 @@ public class Main {
           System.out.println("Gracias por usar Gutendex Books!");
           break;
         default:
-          System.out.println("Opción inválida. Por favor, elija una opción válida.");
+          System.out.println("***OPCIÓN INVÁLIDA. Por favor, elija una opción válida.***");
       }
 
-    }
+    } // end while
 
     scanner.close(); // Close the scanner object
 
-  }
-
+  } // end muestraElMenu
 
 }
 
